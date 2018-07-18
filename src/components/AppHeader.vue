@@ -1,15 +1,26 @@
 <template>
   <div class = 'app-header'>
-    <input class = 'app-header__input' v-model = 'searchTheNotes'>
+    <input type='text' class = 'app-header__input' @input="searchTheNotes" :value="searchFieldKey">
   </div>
 </template>
 
 <script>
+  import { mapMutations, mapGetters } from 'vuex'
 
   export default{
-    data:() =>({
-      searchTheNotes:''
-    })
+    computed:{
+      ...mapGetters([
+        'searchFieldKey'
+      ])
+    },
+    methods:{
+      searchTheNotes(value){
+        this.search(value.target.value);
+      },
+      ...mapMutations([
+        'search'
+      ])
+    }
   }
 </script>
 

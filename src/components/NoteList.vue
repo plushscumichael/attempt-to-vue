@@ -20,6 +20,7 @@
   import NoteKeep from '../js/NoteKeep.js'
   import draggable from 'vuedraggable'
   import AppHeader from './AppHeader.vue'
+  import { mapGetters } from 'vuex'
 
   export default{
     components:{
@@ -27,15 +28,17 @@
     },
     data:() => ({
         notes: [],
-        archiveNotes: [],
-        searchTheNotes: ""
+        archiveNotes: []
     }),
     computed:{
       filteredNotes(){
         return this.notes.filter((note) =>{
-          return note.texts.match(this.searchTheNotes)
+          return note.texts.match(this.searchFieldKey)
         })
-      }
+      },
+      ...mapGetters([
+        'searchFieldKey'
+      ])
     },
     created(){
       this.notes = NoteKeep.notes;

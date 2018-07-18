@@ -62,6 +62,8 @@
     color: black;
     font-size: 20px;
     text-align: center;
+    overflow: hidden;
+    word-break: break-all;
   }
 
   .note-buttons{
