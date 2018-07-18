@@ -16,22 +16,17 @@
   import NoteArchive from './NoteArchive.vue'
   import draggable from 'vuedraggable'
 
-  export default {
-    components: {
-      NoteArchive,draggable
+  export default{
+    components:{
+      NoteArchive, draggable
     },
-    data () {
-      return {
+    data:() => ({
         notes: [],
-        archiveNotes:[],
-      }
-    },
-    created () {
+        archiveNotes: []
+    }),
+    created(){
       this.notes = NoteKeep.notes;
       this.archiveNotes = NoteKeep.archiveNotes;
-    },
-    mounted (){
-      NoteKeep.changeTheNote(this.$route.params.id)
     }
   }
 </script>

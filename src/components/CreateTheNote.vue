@@ -17,24 +17,21 @@
   import NoteKeep from '../js/NoteKeep.js'
   import { mapMutations, mapGetters } from 'vuex'
 
-  export default {
-    components: {
+  export default{
+    components:{
       Note
     },
-
-    data () {
-      return {
-        noteText: '',
-        createNote: false,
-        notes:[]
-      }
-    },
-    computed: {
+    data:() => ({
+      noteText: '',
+      createNote: false,
+      notes:[]
+    }),
+    computed:{
       ...mapGetters([
         'key'
       ])
     },
-    methods: {
+    methods:{
       ...mapMutations([
         'increment'
       ]),
@@ -51,12 +48,9 @@
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
       }
     },
-    created () {
+    created(){
       this.notes = NoteKeep.notes;
       this.archiveNotes = NoteKeep.archiveNotes;
-    },
-    mounted (){
-      NoteKeep.changeTheNote(this.$route.params.id)
     }
   }
 </script>

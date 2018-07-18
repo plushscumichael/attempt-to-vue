@@ -18,8 +18,8 @@
   import LeftSidebar from './LeftSidebar.vue'
   import AppHeader from './AppHeader.vue'
 
-  export default {
-    components: {
+  export default{
+    components:{
       NoteList, CreateTheNote, LeftSidebar, AppHeader, ArchiveList
     }
   }

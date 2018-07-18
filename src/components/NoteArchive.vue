@@ -16,13 +16,13 @@
       }
     },
     methods:{
-      dearchivateTheNote (){
+      dearchivateTheNote(){
         this.$emit('dearchivateTheNote', this.note.id);
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
         localStorage.setItem('archive-storage', JSON.stringify(this.archiveNotes));
       }
     },
-    created () {
+    created(){
       this.notes = NoteKeep.notes;
       this.archiveNotes = NoteKeep.archiveNotes
     }
@@ -32,7 +32,7 @@
 
 <style>
 
-  .note-in-archive {
+  .note-in-archive{
     display: flex;
     flex-direction: column;
     justify-content: space-between;

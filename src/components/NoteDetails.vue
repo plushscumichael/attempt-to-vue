@@ -11,33 +11,25 @@
   import Note from './Note.vue'
   import NoteKeep from '../js/NoteKeep.js'
 
-
   export default{
-    components: {
+    components:{
       Note
     },
-    data (){
-      return{
-        notes:[],
-        noteText: ''
+    data:() => ({
+      notes: [],
+      noteText: ''
+    }),
+    methods:{
+      changeThisNote(){
+        const index = this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id));
+        this.notes[index].texts = this.noteText;
+        this.noteText = '';
+        localStorage.setItem('note-storage', JSON.stringify(this.notes));
+        this.$router.push('/')
       }
     },
-    methods:{
-        changeThisNote(){
-         // console.log(this.$route.params.id)
-         // this.notes[this.$route.params.id].texts = this.noteText;
-          const index = this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id))
-          this.notes[index].texts = this.noteText;
-          this.noteText = '';
-          localStorage.setItem('note-storage', JSON.stringify(this.notes));
-          this.$router.push('/')
-        }
-    },
-    created (){
-        this.notes = NoteKeep.notes;
-    },
-    mounted (){
-      NoteKeep.changeTheNote(this.$route.params.id)
+    created(){
+      this.notes = NoteKeep.notes;
     }
   }
 </script>

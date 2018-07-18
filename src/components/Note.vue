@@ -13,38 +13,36 @@
 
   import NoteKeep from '../js/NoteKeep.js'
 
-  export default {
-    data() {
-      return {
+  export default{
+    data:() => ({
         notes: []
-      }
-    },
-    props: {
-      note: {
+    }),
+    props:{
+      note:{
         type: Object,
         required: true
       }
     },
-    methods: {
-      killTheNote (){
+    methods:{
+      killTheNote(){
         this.$emit('killTheNote', this.note.id);
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
       },
-      archivateTheNote (){
+      archivateTheNote(){
         this.$emit('archivateTheNote', this.note.id);
         localStorage.setItem('archive-storage', JSON.stringify(this.archiveNotes));
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
       },
-      changeTheNote (){
+      changeTheNote(){
         NoteKeep.changeTheNote(this.note.id);
         this.$router.push('/note/'+this.note.id)
       }
     },
-    created () {
+    created(){
       this.notes = NoteKeep.notes;
       this.archiveNotes = NoteKeep.archiveNotes
     },
-    mounted (){
+    mounted(){
       NoteKeep.changeTheNote(this.$route.params.id)
     }
   }

@@ -6,8 +6,7 @@
 </template>
 
 <script>
-  export default{
-  }
+  export default{}
 </script>
 
 <style>
@@ -17,6 +16,7 @@
     display: flex;
     flex-direction: column;
     background-color: #16a8d4;
+    height: 275px;
   }
 
   .sidebar-button{
