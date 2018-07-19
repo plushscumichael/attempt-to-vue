@@ -5,7 +5,7 @@ import store from '../store/store.js'
 export default new Vue({
   data: {
     notes:[],
-    archiveNotes: []
+    archiveNotes:[]
   },
   created () {
     this.notes = JSON.parse(localStorage.getItem('note-storage') || '[]');

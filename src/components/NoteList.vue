@@ -7,7 +7,7 @@
         :key="note.id"
         :note="note"
         :index="(i+1)"
-        @killTheNote="deleteTheNote"
+        @killTheNote="notes.splice((notes.findIndex(el => el.id === note.id)),1)"
         @archivateTheNote="archiveNotes.push(notes[i]),
                            notes.splice(i,1)"/>
     </draggable>
@@ -41,9 +41,7 @@
       ])
     },
     methods:{
-      deleteTheNote(){
-        this.notes.splice(this.$route.params.id,1)
-      }
+
     },
     created(){
       this.notes = NoteKeep.notes;
