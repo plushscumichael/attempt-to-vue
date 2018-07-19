@@ -7,9 +7,9 @@
         :key="note.id"
         :note="note"
         :index="(i+1)"
-        @killTheNote="notes.splice(i,1)"
+        @killTheNote="deleteTheNote"
         @archivateTheNote="archiveNotes.push(notes[i]),
-                           notes.splice(i,1)"></note>
+                           notes.splice(i,1)"/>
     </draggable>
   </div>
 </template>
@@ -39,6 +39,11 @@
       ...mapGetters([
         'searchFieldKey'
       ])
+    },
+    methods:{
+      deleteTheNote(){
+        this.notes.splice(this.$route.params.id,1)
+      }
     },
     created(){
       this.notes = NoteKeep.notes;

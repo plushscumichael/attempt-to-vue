@@ -1,11 +1,10 @@
 <template>
-    <form @submit.prevent = 'changeThisNote' class="note-details-form" >
-      <label class = 'note-details'>
-        <div class = 'current-note'>{{this.notes[this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id))].texts}}</div>
-        <textarea class = 'note-textarea' v-model='noteText'> </textarea>
-      </label>
-      <button class="note-details-button">Change</button>
-    </form>
+  <label class="note-details-form">
+    <textarea class = 'note-input'
+              v-model='noteText'
+              v-bind:placeholder="notes[this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id))].texts"
+              @keydown.enter="changeThisNote"></textarea>
+  </label>
 </template>
 
 <script>
@@ -26,7 +25,8 @@
         this.notes[index].texts = this.noteText;
         this.noteText = '';
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
-        this.$router.push('/')
+        this.$router.push('/');
+        this.$emit('changeThisNote')
       }
     },
     created(){
@@ -44,46 +44,15 @@
     align-items: center;
   }
 
-  .note-details{
-    display:flex;
-    border: 1px solid white;
-    background-color: white;
-    color: black;
-    font-size: 20px;
-  }
-
-  .note-textarea{
-    border: 1px solid #0f76b3;
-    outline: none;
+  .note-input{
+    border: 1px solid dimgray;
     width: 300px;
     height: 300px;
     resize:none;
+    outline: none;
     font-size: 20px;
-    margin: 20px;
-  }
-
-  .current-note{
-    border: 1px solid #0f76b3;
-    width: 300px;
-    height: 300px;
     color: black;
-    font-size: 20px;
-    text-align: center;
-    margin: 20px;
-  }
-
-  .note-details-button{
-    padding: 15px 200px;
-    border: 1px solid #0f76b3;
-    font-size: 16px;
-    color: #0f76b3;
-    background-color: #fff;
-    transition: color .5s ease, background-color .3s ease;
-  }
-
-  .note-details-button:hover{
-    background-color: #118dd4;
-    color: #fff;
+    margin: 5%;
   }
 
 </style>

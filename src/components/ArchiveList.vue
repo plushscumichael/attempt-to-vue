@@ -1,5 +1,5 @@
 <template>
-  <draggable v-model="archiveNotes" class = 'row note-list'>
+  <draggable v-model="archiveNotes">
     <note-archive
       v-for="(note,i) in archiveNotes"
       :key="note.id"
@@ -30,3 +30,4 @@
     }
   }
 </script>
+

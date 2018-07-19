@@ -37,13 +37,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #0f76b3;
-    width: 300px;
-    height: 300px;
+    border: 1px solid dimgray;
+    width: 250px;
+    height: 250px;
     margin: 10px;
     color: black;
     font-size: 20px;
     text-align: center;
+    overflow: hidden;
+    word-break: break-all;
+    background-color: whitesmoke;
   }
 
 </style>

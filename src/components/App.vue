@@ -27,9 +27,8 @@
 
 <style>
 
-  html,
   body {
-    height: 100%;
+    background-color: #e8e8e8;
   }
 
   .container{
