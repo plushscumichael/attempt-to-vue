@@ -40,6 +40,7 @@
     padding: 0 125px;
     font-size: 40px;
     border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .logo{

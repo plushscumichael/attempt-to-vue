@@ -50,7 +50,6 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Raleway');
 
   .create-a-note{
     display: flex;
@@ -66,7 +65,7 @@
     padding: 0 100px;
     height: 50px;
     font-size: 25px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 10px;
   }
 

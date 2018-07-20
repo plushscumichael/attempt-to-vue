@@ -10,7 +10,6 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Raleway');
 
   .left-sidebar{
     width: 20%;
@@ -27,7 +26,7 @@
     text-align: center;
     text-decoration: none;
     transition: color 0.5s ease, background-color 0.3s ease;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .sidebar-button:hover{

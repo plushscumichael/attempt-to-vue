@@ -47,6 +47,7 @@
     overflow: hidden;
     word-break: break-all;
     background-color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
   }
 
 </style>

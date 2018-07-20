@@ -1,8 +1,8 @@
 <template>
   <label class="note-details-form">
     <textarea class = 'note-input'
-              v-model='noteText'
-              v-bind:placeholder="notes[this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id))].texts"
+              :value="notes[this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id))].texts"
+              @input="noteText = $event.target.value"
               @keydown.enter="changeThisNote"></textarea>
   </label>
 </template>
@@ -17,13 +17,12 @@
     },
     data:() => ({
       notes: [],
-      noteText: ''
+      noteText:''
     }),
     methods:{
       changeThisNote(){
         const index = this.notes.findIndex(elem => String(elem.id) === String(this.$route.params.id));
-        this.notes[index].texts = this.noteText;
-        this.noteText = '';
+        this.notes[index].texts = this.noteText
         localStorage.setItem('note-storage', JSON.stringify(this.notes));
         this.$router.push('/');
         this.$emit('changeThisNote')
@@ -53,6 +52,7 @@
     font-size: 20px;
     color: black;
     margin: 5%;
+    font-family: 'Montserrat', sans-serif;
   }
 
 </style>

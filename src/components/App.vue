@@ -26,6 +26,7 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
   body {
     background-color: #e8e8e8;
