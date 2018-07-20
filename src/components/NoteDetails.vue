@@ -53,6 +53,7 @@
     color: black;
     margin: 5%;
     font-family: 'Montserrat', sans-serif;
+    text-align:center;
   }
 
 </style>
